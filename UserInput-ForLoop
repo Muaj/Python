@@ -1,0 +1,21 @@
+#Asks for user input to begin
+userInput = input("Whatever ")
+
+#formats user input to lowercase for easier testing
+nuserInput = userInput.lower()
+
+#creates the x as an empty string
+x = ""
+
+#for loop uses nuserInput
+for i in nuserInput:
+    #if i equals whatever letter add a new string to the existing x string value
+    if i == "g":
+        x += "-Gly"
+    if i == "l":
+        x += "-Leu"
+    if i == "y":
+        x += "-Tyr"
+
+#print the final x string value while removing the leading characters [space] and [-]
+print(x.lstrip(' -'))
