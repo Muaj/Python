@@ -1,0 +1,73 @@
+
+ds = input("Enter a DNA sequence: ")
+dsl = ds.lower()
+x = ""
+
+for i in dsl:
+    if i == "a":
+        x += "T"
+    elif i == "t":
+        x += "A"
+    elif i == "c":
+        x+= "G"
+    elif i == "g":
+        x += "C"
+
+print("Complementary sequence: " + x)
+
+
+nsl = x.lower()
+y = ""
+for h in nsl:
+    if h == "a":
+        y += "U"
+    if h == "t":
+        y += "A"
+    if h == "c":
+        y += "G"
+    if h == "g":
+        y += "C"
+print("RNA coding sequence: " + y)
+
+
+codons = range(0, len(y), 3)
+outcome = [y[codons:codons+3] for codons in range(0,len(y),3)]
+
+
+Phe =   ["UUU", "UUC"]
+Leu =   ["UUA", "UUG", "CUU", "CUC", "CUA", "CUG"]
+Ile =   ["AUU", "AUC", "AUA"]
+START = ["AUG"]
+Val =   ["GUU", "GUC", "GUA", "GUG"]
+Ser =   ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"]
+Pro =   ["CCU", "CCC", "CCA", "CCG"]
+Thr =   ["ACU", "ACC", "ACA", "ACG"]
+Ala =   ["GCU", "GCC", "GCA", "GCG"]
+Tyr =   ["UAU", "UAC"]
+STOP =  ["UAA", "UAG", "UGA"]
+His =   ["CAU", "CAC"]
+Glu =   ["CAA", "CAG", "GAA", "GAG"]
+Asn =   ["AAU", "AAC"]
+Lys =   ["AAA", "AAG"]
+Asp =   ["GAU", "GAC"]
+Cys =   ["UGU", "UGC"]
+Trp =   ["UGG"]
+Arg =   ["CGU", "CGC", "CGA", "CGC", "AGA", "AGG"]
+Gly =   ["GGU", "GGC", "GGA", "GGG"]
+
+
+h = []
+for j in outcome:
+    
+    if j in Phe:
+        h.append("Phe")
+    if j in Leu:
+        h.append('Leu')
+    if j in Ile:
+        h.append("Ile")
+    if j in START:
+        h.append("Met")
+    if j in STOP:
+        h.append("*")
+        
+print(*h)
